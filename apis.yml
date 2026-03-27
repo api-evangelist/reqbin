@@ -1,0 +1,42 @@
+aid: reqbin
+name: ReqBin
+description: >-
+  ReqBin is an online HTTP/REST API client for testing API requests directly from the browser without plugins.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+      - Clients
+      - Online
+      - HTTP Client
+      - Browser
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/reqbin/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: reqbin:reqbin
+    name: ReqBin
+    description: >-
+      ReqBin is an online HTTP/REST API client for testing API requests directly from the browser without plugins.
+    humanURL: https://reqbin.com
+    tags:
+        - Clients
+        - Online
+        - HTTP Client
+        - Browser
+    properties:
+      - type: Documentation
+        url: https://reqbin.com/help
+      - type: Getting Started
+        url: https://reqbin.com
+common:
+  - type: Website
+    url: https://reqbin.com
+  - type: Documentation
+    url: https://reqbin.com/help
+  - type: GitHub Organization
+    url: https://reqbin.com
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
