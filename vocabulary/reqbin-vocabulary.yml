@@ -1,0 +1,202 @@
+name: ReqBin Vocabulary
+description: >-
+  Vocabulary and taxonomy for the ReqBin online HTTP/REST API testing tool.
+  Covers HTTP methods, authentication schemes, request/response concepts,
+  content types, and API testing workflows.
+version: "1.0.0"
+created: "2026-05-02"
+modified: "2026-05-02"
+
+categories:
+  - name: HTTP Methods
+    description: HTTP request methods supported by ReqBin for API testing.
+    terms:
+      - term: GET
+        definition: >-
+          Retrieves data from a server. Used to read resources without
+          modifying server state. The most common HTTP method.
+        safe: true
+        idempotent: true
+
+      - term: POST
+        definition: >-
+          Submits data to a server to create or process a resource.
+          Used for creating new resources and submitting forms.
+        safe: false
+        idempotent: false
+
+      - term: PUT
+        definition: >-
+          Replaces an existing resource entirely with the provided data.
+          Idempotent — repeated identical PUT requests produce the same result.
+        safe: false
+        idempotent: true
+
+      - term: PATCH
+        definition: >-
+          Partially updates an existing resource. Unlike PUT, PATCH only
+          modifies the fields provided in the request body.
+        safe: false
+        idempotent: false
+
+      - term: DELETE
+        definition: >-
+          Removes a resource from the server. Idempotent — deleting an
+          already-deleted resource returns a success or 404.
+        safe: false
+        idempotent: true
+
+      - term: HEAD
+        definition: >-
+          Identical to GET but returns only headers without a response body.
+          Used to check if a resource exists or retrieve metadata.
+        safe: true
+        idempotent: true
+
+      - term: OPTIONS
+        definition: >-
+          Describes the communication options for a resource. Used for
+          CORS preflight requests and API discovery.
+        safe: true
+        idempotent: true
+
+  - name: Authentication Types
+    description: Authentication schemes for API testing.
+    terms:
+      - term: Bearer Token
+        definition: >-
+          An HTTP authentication scheme that sends a token in the Authorization
+          header: "Authorization: Bearer {token}". Common for REST APIs and OAuth2.
+
+      - term: API Key
+        definition: >-
+          A secret key passed in a header, query parameter, or cookie to
+          authenticate API requests. Header example: "X-API-Key: {key}".
+
+      - term: Basic Authentication
+        definition: >-
+          HTTP Basic Auth sends a base64-encoded username:password pair
+          in the Authorization header: "Authorization: Basic {encoded}".
+
+      - term: OAuth 2.0
+        definition: >-
+          An authorization framework that grants applications limited access
+          to user accounts. Tokens obtained via authorization code, client
+          credentials, or other grant types.
+
+      - term: Digest Authentication
+        definition: >-
+          A more secure alternative to Basic Auth that hashes credentials
+          using MD5 rather than base64 encoding.
+
+  - name: Content Types
+    description: Common Content-Type values used in API requests.
+    terms:
+      - term: application/json
+        definition: "JSON format. Most common content type for modern REST APIs."
+
+      - term: application/x-www-form-urlencoded
+        definition: "URL-encoded form data. Used by HTML forms and some legacy APIs."
+
+      - term: multipart/form-data
+        definition: "Multipart form encoding. Used when uploading files in API requests."
+
+      - term: application/xml
+        definition: "XML format. Used by SOAP APIs and older REST APIs."
+
+      - term: text/plain
+        definition: "Plain text content with no special formatting."
+
+      - term: application/octet-stream
+        definition: "Binary data stream. Used for file downloads and binary uploads."
+
+  - name: HTTP Status Codes
+    description: HTTP response status codes encountered when testing APIs.
+    terms:
+      - term: 200 OK
+        definition: "The request succeeded. Standard response for successful GET, PUT, PATCH requests."
+        category: Success
+
+      - term: 201 Created
+        definition: "The request succeeded and a new resource was created. Common POST response."
+        category: Success
+
+      - term: 204 No Content
+        definition: "The request succeeded but there is no response body. Common DELETE response."
+        category: Success
+
+      - term: 400 Bad Request
+        definition: "The server cannot process the request due to malformed syntax or invalid parameters."
+        category: Client Error
+
+      - term: 401 Unauthorized
+        definition: "Authentication is required or has failed. Check API key or token."
+        category: Client Error
+
+      - term: 403 Forbidden
+        definition: "The server understood the request but refuses to authorize it."
+        category: Client Error
+
+      - term: 404 Not Found
+        definition: "The requested resource could not be found."
+        category: Client Error
+
+      - term: 422 Unprocessable Entity
+        definition: "The request was well-formed but contains semantic errors (validation failure)."
+        category: Client Error
+
+      - term: 429 Too Many Requests
+        definition: "The client has exceeded the rate limit. Retry after the indicated delay."
+        category: Client Error
+
+      - term: 500 Internal Server Error
+        definition: "The server encountered an unexpected error."
+        category: Server Error
+
+  - name: API Testing Concepts
+    description: Core concepts for HTTP API testing.
+    terms:
+      - term: Request
+        definition: >-
+          An HTTP message sent from a client to a server consisting of a
+          method, URL, headers, and optional body.
+        related: [Response, HTTP Method]
+
+      - term: Response
+        definition: >-
+          An HTTP message returned by a server consisting of a status code,
+          headers, and optional body.
+        related: [Request, Status Code]
+
+      - term: Endpoint
+        definition: >-
+          A specific URL at which an API resource can be accessed. Endpoints
+          combine a base URL with a path (e.g., https://api.example.com/users/123).
+
+      - term: Header
+        definition: >-
+          Key-value metadata sent with HTTP requests and responses. Common
+          headers include Content-Type, Authorization, Accept, and Cache-Control.
+
+      - term: Query Parameter
+        definition: >-
+          Key-value pairs appended to a URL after the "?" character. Used to
+          filter, sort, or paginate API results.
+
+      - term: Request Body
+        definition: >-
+          Data sent in the body of POST, PUT, or PATCH requests. Common
+          formats include JSON, XML, and form data.
+
+      - term: CORS (Cross-Origin Resource Sharing)
+        definition: >-
+          A browser security mechanism that restricts HTTP requests from one
+          origin to another. APIs must return proper CORS headers for
+          browser-based clients to work.
+
+      - term: Code Generation
+        definition: >-
+          Automatically generating code in languages like Python, JavaScript,
+          cURL, PHP, or Go from a configured HTTP request. ReqBin supports
+          this feature.
+        related: [Request]

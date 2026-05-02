@@ -1,0 +1,72 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "http": "https://www.iana.org/assignments/http-methods#",
+    "reqbin": "https://api-evangelist.github.io/reqbin/vocab#",
+
+    "HttpRequest": {
+      "@id": "reqbin:HttpRequest",
+      "@type": "schema:Action"
+    },
+    "HttpResponse": {
+      "@id": "reqbin:HttpResponse",
+      "@type": "schema:Action"
+    },
+    "ApiTest": {
+      "@id": "reqbin:ApiTest",
+      "@type": "schema:Action"
+    },
+
+    "method": {
+      "@id": "reqbin:httpMethod",
+      "@type": "@vocab",
+      "@context": {
+        "GET": "http:GET",
+        "POST": "http:POST",
+        "PUT": "http:PUT",
+        "PATCH": "http:PATCH",
+        "DELETE": "http:DELETE",
+        "HEAD": "http:HEAD",
+        "OPTIONS": "http:OPTIONS"
+      }
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "xsd:anyURI"
+    },
+    "headers": {
+      "@id": "reqbin:headers"
+    },
+    "body": {
+      "@id": "schema:object"
+    },
+    "statusCode": {
+      "@id": "reqbin:statusCode",
+      "@type": "xsd:integer"
+    },
+    "responseTime": {
+      "@id": "reqbin:responseTime",
+      "@type": "xsd:decimal"
+    },
+    "contentType": {
+      "@id": "schema:encodingFormat"
+    },
+    "authentication": {
+      "@id": "schema:accessMode"
+    },
+    "authType": {
+      "@id": "reqbin:authType"
+    },
+    "requestBody": {
+      "@id": "reqbin:requestBody"
+    },
+    "responseBody": {
+      "@id": "reqbin:responseBody"
+    },
+    "generatedCode": {
+      "@id": "schema:programmingLanguage"
+    }
+  }
+}
