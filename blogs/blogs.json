@@ -2,14 +2,11 @@
   "repo": "reqbin",
   "feeds": [
     {
-      "source": "https://reqbin.com/blog/feed/",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://reqbin.com/json-formatter",
-      "error": "HTTPError"
+      "source": "https://reqbin.com/blog",
+      "saved": 0,
+      "error": "HTTP 403 Forbidden on blog listing"
     }
   ],
-  "fetched": "2026-06-14T20:42:17Z",
+  "fetched": "2026-06-27T13:05:39Z",
   "post_count": 0
 }
